@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Click Counter New"
+rootProject.name = "Click Counter"
 include ':app'
