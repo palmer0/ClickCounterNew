@@ -84,6 +84,7 @@ public class CounterPresenter implements CounterContract.Presenter {
     public void onPauseCalled() {
         Log.e(TAG, "onPauseCalled()");
 
+        // save the current state
         mediator.setCounterState(state);
     }
 

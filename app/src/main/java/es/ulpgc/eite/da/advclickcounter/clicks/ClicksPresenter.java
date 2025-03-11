@@ -76,6 +76,7 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     public void onPauseCalled() {
         Log.e(TAG, "onPauseCalled()");
 
+        // save the current state
         mediator.setClicksState(state);
     }
 
