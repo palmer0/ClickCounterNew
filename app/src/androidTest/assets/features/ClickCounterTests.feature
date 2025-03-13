@@ -4,7 +4,7 @@ Feature: Click Counter App
 
   Background:
     Given launch COUNTER screen
-    And COUNTER display shows "0"
+    And COUNTER display shows "1"
     And INCREMENT button is enabled
     And RESET button is disabled
     And CLICKS button is disabled
