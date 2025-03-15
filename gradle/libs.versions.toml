@@ -1,6 +1,10 @@
 [versions]
 agp = "8.4.0"
-cucumberJava = "7.2.3"
+#cucumberJava = "7.12.1"
+#cucumberJUnit = "7.12.1"
+cucumberJava = "7.14.0"
+cucumberAndroid = "7.14.0"
+cucumberJUnit = "7.14.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -15,6 +19,8 @@ uiautomator = "2.3.0"
 
 [libraries]
 cucumber-java = { module = "io.cucumber:cucumber-java", version.ref = "cucumberJava" }
+cucumber-junit = { module = "io.cucumber:cucumber-junit", version.ref = "cucumberJUnit" }
+cucumber-android = { module = "io.cucumber:cucumber-android", version.ref = "cucumberAndroid" }
 espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "espressoCore" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

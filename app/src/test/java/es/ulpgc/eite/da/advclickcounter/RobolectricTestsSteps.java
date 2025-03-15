@@ -15,7 +15,7 @@ import es.ulpgc.eite.da.advclickcounter.clicks.ClicksActivity;
 import es.ulpgc.eite.da.advclickcounter.counter.CounterActivity;
 
 
-public class RobolectricTestSteps {
+public class RobolectricTestsSteps {
 
 
   private ActivityController<CounterActivity> counterTestCtrl;

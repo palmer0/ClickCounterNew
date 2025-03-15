@@ -1,4 +1,4 @@
-package es.ulpgc.eite.da.advclickcounter;
+package es.ulpgc.eite.da.advclickcounter.steps;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
@@ -16,8 +16,10 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.rule.ActivityTestRule;
 
+import es.ulpgc.eite.da.advclickcounter.R;
 import es.ulpgc.eite.da.advclickcounter.counter.CounterActivity;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -25,107 +27,39 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @SuppressWarnings("ALL")
-public class EspressoTestSteps {
+public class EspressoTestsSteps {
 
 
   private ActivityTestRule<CounterActivity> testRule =
       new ActivityTestRule<>(CounterActivity.class,false, false);
 
 
-
-//  @Given("iniciamos pantalla COUNTER")
-//  public void iniciamosPantallaCounter() {
-//    iniciamos_pantalla_COUNTER();
-//  }
-
-//  @Then("pausamos pantalla COUNTER")
-//  public void pausamosPantallaCounter() {
-//    pausamos_pantalla_COUNTER();
-//  }
-
-//  @Given("iniciamos pantalla CLICKS")
-//  public void iniciamosPantallaClicks() {
-//
-//    iniciamos_pantalla_CLICKS();
-//
-//  }
-
-//  @Given("texto en COUNTER muestra {int}")
-//  public void textoEnCounterMuestra(int numero) {
-//    texto_en_COUNTER_muestra(numero);
-//  }
-
-
-//  @When("hacemos clic en boton INCREMENT")
-//  public void hacemosClicEnBotonIncrement() {
-//    hacemos_clic_en_boton_INCREMENT();
-//  }
-
-
-//  @When("hacemos clic en boton CLICKS")
-//  public void hacemosClicEnBotonClicks() {
-//    hacemos_clic_en_boton_CLICKS();
-//  }
-
-//  @When("hacemos clic en boton CLEAR")
-//  public void hacemosClicEnBotonClear() {
-//    hacemos_clic_en_boton_CLEAR();
-//  }
-
-//  @When("hacemos clic en boton RESET")
-//  public void hacemosClicEnBotonReset() {
-//    hacemos_clic_en_boton_RESET();
-//  }
-
-//  @Then("texto en CLICKS muestra {int}")
-//  public void textoEnClicksMuestra(int numero) {
-//    texto_en_CLICKS_muestra(numero);
-//  }
-
-
-//  @Then("finalizamos pantalla CLICKS")
-//  public void finalizamosPantallaClicks() {
-//    finalizamos_pantalla_CLICKS();
-//  }
-
-//  @Then("resumimos pantalla COUNTER")
-//  public void resumimosPantallaCounter() {
-//    resumimos_pantalla_COUNTER();
-//  }
-
-//  @Then("rotamos pantalla COUNTER")
-//  public void rotamosPantallaCounter() {
-//    rotamos_pantalla_COUNTER();
-//  }
-
-//  @Then("rotamos pantalla CLICKS")
-//  public void rotamosPantallaClicks() {
-//    rotamos_pantalla_CLICKS();
-//  }
-
-
-  @And("boton INCREMENT se encuentra {string}")
+  @And("^boton INCREMENT se encuentra \"([^\"]*)\"$")
+  //@And("boton INCREMENT se encuentra {string}")
   public void botonIncrementSeEncuentra(String estado) {
     boton_INCREMENT_se_encuentra(estado.equals("ON"));
   }
 
-  @And("boton RESET se encuentra {string}")
+  @And("^boton RESET se encuentra \"([^\"]*)\"$")
+  //@And("boton RESET se encuentra {string}")
   public void botonResetSeEncuentra(String estado) {
     boton_RESET_se_encuentra(estado.equals("ON"));
   }
 
-  @And("boton CLICKS se encuentra {string}")
+  @And("^boton CLICKS se encuentra \"([^\"]*)\"$")
+  //@And("boton CLICKS se encuentra {string}")
   public void botonClicksSeEncuentra(String estado) {
     boton_CLICKS_se_encuentra(estado.equals("ON"));
   }
 
-
-  @Then("boton CLEAR se encuentra {string}")
+  @And("^boton CLEAR se encuentra \"([^\"]*)\"$")
+  //@Then("boton CLEAR se encuentra {string}")
   public void botonClearSeEncuentra(String estado) {
     boton_CLEAR_se_encuentra(estado.equals("ON"));
   }
 
-  @When("hacemos clic en boton INCREMENT {int} veces")
+  @And("^hacemos clic en boton INCREMENT (\\d+) veces$")
+  //@When("hacemos clic en boton INCREMENT {int} veces")
   public void hacemosClicEnBotonIncrementVeces(int veces) {
     for(int i = 0; i < veces; i++) {
       hacemos_clic_en_boton_INCREMENT();
@@ -202,18 +136,20 @@ public class EspressoTestSteps {
 
   }
 
-  @Given("texto en COUNTER muestra {int}")
+  //@Given("texto en COUNTER muestra {int}")
+  @And("^texto en COUNTER muestra (\\d+)$")
   public void texto_en_COUNTER_muestra(int numero) {
 
     String text= String.valueOf(numero);
 
-    onView(withId(R.id.tvCounter))
+    onView(ViewMatchers.withId(R.id.tvCounter))
         .check(matches(isDisplayed()))
         .check(matches(withText(text)));
 
   }
 
-  @Then("texto en CLICKS muestra {int}")
+  @And("^texto en CLICKS muestra (\\d+)$")
+  //@Then("texto en CLICKS muestra {int}")
   public void texto_en_CLICKS_muestra(int numero) {
 
     String text= String.valueOf(numero);
@@ -279,8 +215,8 @@ public class EspressoTestSteps {
   }
 
 
-  @Then("rotamos pantalla COUNTER")
-  public void rotamos_pantalla_COUNTER() {
+  @Then("rotamos pantalla")
+  public void rotamos_pantalla() {
     Context context = ApplicationProvider.getApplicationContext();
     int orientation = context.getResources().getConfiguration().orientation;
     Activity activity = testRule.getActivity();
@@ -296,11 +232,6 @@ public class EspressoTestSteps {
     } catch (InterruptedException e) {
 
     }
-
-  }
-
-  @Then("rotamos pantalla CLICKS")
-  public void rotamos_pantalla_CLICKS() {
 
   }
 
