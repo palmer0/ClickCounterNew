@@ -16,9 +16,9 @@ import io.cucumber.junit.CucumberOptions;
 //@RunWith(Cucumber.class)
 @CucumberOptions(
     //features = "classpath:features/ClickCounterTests.feature",
-    features = "classpath:features/ClickCounter.feature",
+    features = "classpath:features/ClickCounterApp.feature",
+    //features = "classpath:features/ClickCounter.feature",
     glue = "es.ulpgc.eite.da.advclickcounter.steps",
-    //features = "features",
     plugin = {"pretty"}
 )
 public class EspressoNewTests extends CucumberAndroidJUnitRunner {

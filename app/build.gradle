@@ -14,7 +14,6 @@ android {
         versionName "1.0"
 
         //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        //testInstrumentationRunner "io.cucumber.android.runner.CucumberAndroidJUnitRunner"
         testInstrumentationRunner "es.ulpgc.eite.da.advclickcounter.test.EspressoNewTests"
     }
 
