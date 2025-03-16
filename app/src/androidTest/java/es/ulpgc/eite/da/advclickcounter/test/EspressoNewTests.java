@@ -16,7 +16,7 @@ import io.cucumber.junit.CucumberOptions;
 //@RunWith(Cucumber.class)
 @CucumberOptions(
     //features = "classpath:features/ClickCounterTests.feature",
-    features = "classpath:features/ClickCounterApp.feature",
+    features = "classpath:features/ClickCounterNewTests.feature",
     //features = "classpath:features/ClickCounter.feature",
     glue = "es.ulpgc.eite.da.advclickcounter.steps",
     plugin = {"pretty"}
